@@ -668,6 +668,27 @@
       option && myChart.setOption(option);
 
     </script>
+    
+    <!-- PieMap -->
+    <script>
+      var chart = c3.generate({
+        bindto: '#pie',
+        data: {
+          columns: [
+            ['Micro Empresas', 1743],
+            ['Pequeñas Empresas', 4250],
+            ['Medianas Empresas', 3037],
+            ['Cooperativas no Agropecuarias', 220]
+          ],
+          type: 'pie'
+        },
+        size: {
+          width: 900,  // Ancho del gráfico
+          height: 400  // Altura del gráfico
+        }
+      });
+    </script>
+    
 </body>
 
 </html>
