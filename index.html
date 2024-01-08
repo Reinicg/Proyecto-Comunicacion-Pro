@@ -195,6 +195,479 @@
         habilidades, estaba segura de que podía convertir su visión en una exitosa MIPYME que no solo generaría
         ingresos, sino que también contribuiría al desarrollo económico de su comunidad.</p>
   </div>
+    <!-- ColorMap -->
+    <script>
+      var chartDom = document.getElementById('ColorMap');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      var categoryData = {
+        "Servicios Profesionales": [
+          { "name": "La Habana", "value": 800 },
+          { "name": "Holguín", "value": 165 },
+          { "name": "Santiago de Cuba", "value": 192 },
+          { "name": "Artemisa", "value": 126 },
+          { "name": "Camagüey", "value": 170 },
+          { "name": "Matanzas", "value": 261 },
+          { "name": "Cienfuegos", "value": 168 },
+          { "name": "Mayabeque", "value": 88 },
+          { "name": "Sancti Spíritus", "value": 96 },
+          { "name": "Pinar del Río", "value": 199 },
+          { "name": "Villa Clara", "value": 268 },
+          { "name": "Guantánamo", "value": 141 },
+          { "name": "Granma", "value": 264 },
+          { "name": "Ciego de Ávila", "value": 135 },
+          { "name": "Las Tunas", "value": 120 },
+          { "name": "Isla de la Juventud", "value": 34 }
+        ],
+        "Servicios Técnicos": [
+          { "name": "La Habana", "value": 958 },
+          { "name": "Santiago de Cuba", "value": 211 },
+          { "name": "Holguín", "value": 212 },
+          { "name": "Matanzas", "value": 247 },
+          { "name": "Pinar del Río", "value": 174 },
+          { "name": "Granma", "value": 139 },
+          { "name": "Cienfuegos", "value": 84 },
+          { "name": "Isla de la Juventud", "value": 24 },
+          { "name": "Camagüey", "value": 155 },
+          { "name": "Las Tunas", "value": 116 },
+          { "name": "Mayabeque", "value": 103 },
+          { "name": "Sancti Spíritus", "value": 104 },
+          { "name": "Guantánamo", "value": 96 },
+          { "name": "Artemisa", "value": 141 },
+          { "name": "Villa Clara", "value": 202 },
+          { "name": "Ciego de Ávila", "value": 129 }
+        ],
+        "Comercio y gastronomía": [
+          { "name": "La Habana", "value": 732 },
+          { "name": "Ciego de Ávila", "value": 228 },
+          { "name": "Holguín", "value": 305 },
+          { "name": "Santiago de Cuba", "value": 338 },
+          { "name": "Sancti Spíritus", "value": 193 },
+          { "name": "Camagüey", "value": 286 },
+          { "name": "Villa Clara", "value": 334 },
+          { "name": "Granma", "value": 279 },
+          { "name": "Matanzas", "value": 302 },
+          { "name": "Las Tunas", "value": 223 },
+          { "name": "Guantánamo", "value": 209 },
+          { "name": "Artemisa", "value": 278 },
+          { "name": "Pinar del Río", "value": 224 },
+          { "name": "Mayabeque", "value": 142 },
+          { "name": "Cienfuegos", "value": 191 },
+          { "name": "Isla de la Juventud", "value": 36 }
+        ],
+        "Agropecuario, ganadería, forestal y pesca": [
+          { "name": "Sancti Spíritus", "value": 447 },
+          { "name": "Santiago de Cuba", "value": 640 },
+          { "name": "Camagüey", "value": 566 },
+          { "name": "Villa Clara", "value": 582 },
+          { "name": "Granma", "value": 685 },
+          { "name": "Holguín", "value": 663 },
+          { "name": "Artemisa", "value": 336 },
+          { "name": "Las Tunas", "value": 358 },
+          { "name": "Matanzas", "value": 446 },
+          { "name": "La Habana", "value": 239 },
+          { "name": "Guantánamo", "value": 443 },
+          { "name": "Isla de la Juventud", "value": 44 },
+          { "name": "Pinar del Río", "value": 545 },
+          { "name": "Mayabeque", "value": 351 },
+          { "name": "Cienfuegos", "value": 290 },
+          { "name": "Ciego de Ávila", "value": 343 }
+        ],
+        "Manufactura": [
+          { "name": "La Habana", "value": 725 },
+          { "name": "Las Tunas", "value": 128 },
+          { "name": "Granma", "value": 132 },
+          { "name": "Villa Clara", "value": 253 },
+          { "name": "Mayabeque", "value": 75 },
+          { "name": "Artemisa", "value": 115 },
+          { "name": "Ciego de Ávila", "value": 92 },
+          { "name": "Matanzas", "value": 174 },
+          { "name": "Santiago de Cuba", "value": 162 },
+          { "name": "Pinar del Río", "value": 140 },
+          { "name": "Camagüey", "value": 182 },
+          { "name": "Holguín", "value": 222 },
+          { "name": "Cienfuegos", "value": 77 },
+          { "name": "Isla de la Juventud", "value": 13 },
+          { "name": "Sancti Spíritus", "value": 96 },
+          { "name": "Guantánamo", "value": 55 }
+        ],
+        "Construcción": [
+          { "name": "Holguín", "value": 98 },
+          { "name": "La Habana", "value": 248 },
+          { "name": "Ciego de Ávila", "value": 45 },
+          { "name": "Santiago de Cuba", "value": 67 },
+          { "name": "Las Tunas", "value": 31 },
+          { "name": "Matanzas", "value": 97 },
+          { "name": "Granma", "value": 66 },
+          { "name": "Villa Clara", "value": 97 },
+          { "name": "Cienfuegos", "value": 42 },
+          { "name": "Mayabeque", "value": 18 },
+          { "name": "Camagüey", "value": 48 },
+          { "name": "Pinar del Río", "value": 60 },
+          { "name": "Guantánamo", "value": 44 },
+          { "name": "Artemisa", "value": 34 },
+          { "name": "Sancti Spíritus", "value": 29 },
+          { "name": "Isla de la Juventud", "value": 8 }
+        ],
+        "Arte, deporte, recreación y entretenimiento": [
+          { "name": "Holguín", "value": 101 },
+          { "name": "La Habana", "value": 325 },
+          { "name": "Sancti Spíritus", "value": 53 },
+          { "name": "Villa Clara", "value": 65 },
+          { "name": "Artemisa", "value": 26 },
+          { "name": "Matanzas", "value": 74 },
+          { "name": "Santiago de Cuba", "value": 87 },
+          { "name": "Mayabeque", "value": 25 },
+          { "name": "Cienfuegos", "value": 51 },
+          { "name": "Camagüey", "value": 79 },
+          { "name": "Isla de la Juventud", "value": 14 },
+          { "name": "Pinar del Río", "value": 59 },
+          { "name": "Ciego de Ávila", "value": 46 },
+          { "name": "Guantánamo", "value": 36 },
+          { "name": "Granma", "value": 69 },
+          { "name": "Las Tunas", "value": 42 }
+        ],
+        "Transporte": [
+          { "name": "La Habana", "value": 376 },
+          { "name": "Ciego de Ávila", "value": 90 },
+          { "name": "Guantánamo", "value": 59 },
+          { "name": "Mayabeque", "value": 71 },
+          { "name": "Sancti Spíritus", "value": 67 },
+          { "name": "Las Tunas", "value": 124 },
+          { "name": "Villa Clara", "value": 134 },
+          { "name": "Granma", "value": 120 },
+          { "name": "Matanzas", "value": 189 },
+          { "name": "Artemisa", "value": 78 },
+          { "name": "Cienfuegos", "value": 133 },
+          { "name": "Pinar del Río", "value": 82 },
+          { "name": "Santiago de Cuba", "value": 173 },
+          { "name": "Holguín", "value": 230 },
+          { "name": "Camagüey", "value": 161 },
+          { "name": "Isla de la Juventud", "value": 17 }
+        ],
+        "Energía, agua y gas": [
+          { "name": "Camagüey", "value": 33 },
+          { "name": "Villa Clara", "value": 27 },
+          { "name": "La Habana", "value": 46 },
+          { "name": "Matanzas", "value": 30 },
+          { "name": "Granma", "value": 51 },
+          { "name": "Las Tunas", "value": 21 },
+          { "name": "Cienfuegos", "value": 24 },
+          { "name": "Pinar del Río", "value": 33 },
+          { "name": "Isla de la Juventud", "value": 4 },
+          { "name": "Guantánamo", "value": 31 },
+          { "name": "Mayabeque", "value": 29 },
+          { "name": "Ciego de Ávila", "value": 24 },
+          { "name": "Santiago de Cuba", "value": 33 },
+          { "name": "Holguín", "value": 48 },
+          { "name": "Artemisa", "value": 25 },
+          { "name": "Sancti Spíritus", "value": 21 }
+        ],
+        "Medio Ambiente y Reciclaje": [
+          { "name": "La Habana", "value": 46 },
+          { "name": "Cienfuegos", "value": 20 },
+          { "name": "Matanzas", "value": 35 },
+          { "name": "Granma", "value": 19 },
+          { "name": "Guantánamo", "value": 21 },
+          { "name": "Camagüey", "value": 13 },
+          { "name": "Isla de la Juventud", "value": 3 },
+          { "name": "Artemisa", "value": 25 },
+          { "name": "Villa Clara", "value": 29 },
+          { "name": "Mayabeque", "value": 23 },
+          { "name": "Sancti Spíritus", "value": 11 },
+          { "name": "Pinar del Río", "value": 22 },
+          { "name": "Holguín", "value": 29 },
+          { "name": "Santiago de Cuba", "value": 22 },
+          { "name": "Ciego de Ávila", "value": 12 },
+          { "name": "Las Tunas", "value": 16 }
+        ],
+        "Alojamiento y Turismo": [
+          { "name": "Holguín", "value": 52 },
+          { "name": "La Habana", "value": 276 },
+          { "name": "Sancti Spíritus", "value": 45 },
+          { "name": "Villa Clara", "value": 34 },
+          { "name": "Pinar del Río", "value": 61 },
+          { "name": "Granma", "value": 31 },
+          { "name": "Las Tunas", "value": 24 },
+          { "name": "Mayabeque", "value": 17 },
+          { "name": "Santiago de Cuba", "value": 49 },
+          { "name": "Matanzas", "value": 87 },
+          { "name": "Ciego de Ávila", "value": 34 },
+          { "name": "Artemisa", "value": 31 },
+          { "name": "Camagüey", "value": 47 },
+          { "name": "Cienfuegos", "value": 21 },
+          { "name": "Guantánamo", "value": 26 },
+          { "name": "Isla de la Juventud", "value": 8 }
+        ],
+        "Industrias": [
+          { "name": "La Habana", "value": 209 },
+          { "name": "Cienfuegos", "value": 34 },
+          { "name": "Camagüey", "value": 33 },
+          { "name": "Sancti Spíritus", "value": 23 },
+          { "name": "Villa Clara", "value": 66 },
+          { "name": "Santiago de Cuba", "value": 43 },
+          { "name": "Las Tunas", "value": 16 },
+          { "name": "Granma", "value": 38 },
+          { "name": "Pinar del Río", "value": 43 },
+          { "name": "Mayabeque", "value": 29 },
+          { "name": "Matanzas", "value": 49 },
+          { "name": "Ciego de Ávila", "value": 24 },
+          { "name": "Holguín", "value": 38 },
+          { "name": "Artemisa", "value": 19 },
+          { "name": "Isla de la Juventud", "value": 6 },
+          { "name": "Guantánamo", "value": 16 }
+        ],
+        "Educación y servicios públicos y sociales": [
+          { "name": "La Habana", "value": 456 },
+          { "name": "Artemisa", "value": 50 },
+          { "name": "Granma", "value": 95 },
+          { "name": "Villa Clara", "value": 138 },
+          { "name": "Ciego de Ávila", "value": 51 },
+          { "name": "Sancti Spíritus", "value": 65 },
+          { "name": "Santiago de Cuba", "value": 144 },
+          { "name": "Pinar del Río", "value": 92 },
+          { "name": "Holguín", "value": 121 },
+          { "name": "Mayabeque", "value": 42 },
+          { "name": "Matanzas", "value": 105 },
+          { "name": "Isla de la Juventud", "value": 14 },
+          { "name": "Guantánamo", "value": 82 },
+          { "name": "Cienfuegos", "value": 82 },
+          { "name": "Camagüey", "value": 64 },
+          { "name": "Las Tunas", "value": 88 }
+        ],
+        "Salud y Belleza": [
+          { "name": "La Habana", "value": 484 },
+          { "name": "Camagüey", "value": 95 },
+          { "name": "Artemisa", "value": 72 },
+          { "name": "Matanzas", "value": 141 },
+          { "name": "Holguín", "value": 95 },
+          { "name": "Villa Clara", "value": 134 },
+          { "name": "Ciego de Ávila", "value": 90 },
+          { "name": "Cienfuegos", "value": 94 },
+          { "name": "Mayabeque", "value": 46 },
+          { "name": "Sancti Spíritus", "value": 84 },
+          { "name": "Santiago de Cuba", "value": 142 },
+          { "name": "Isla de la Juventud", "value": 34 },
+          { "name": "Guantánamo", "value": 62 },
+          { "name": "Granma", "value": 121 },
+          { "name": "Pinar del Río", "value": 95 },
+          { "name": "Las Tunas", "value": 76 }
+        ],
+        "Asociaciones": [
+          { "name": "Sancti Spíritus", "value": 5 },
+          { "name": "La Habana", "value": 56 },
+          { "name": "Matanzas", "value": 13 },
+          { "name": "Villa Clara", "value": 6 },
+          { "name": "Las Tunas", "value": 3 },
+          { "name": "Artemisa", "value": 3 },
+          { "name": "Holguín", "value": 6 },
+          { "name": "Mayabeque", "value": 6 },
+          { "name": "Camagüey", "value": 14 },
+          { "name": "Cienfuegos", "value": 16 },
+          { "name": "Granma", "value": 6 },
+          { "name": "Pinar del Río", "value": 13 },
+          { "name": "Isla de la Juventud", "value": 2 },
+          { "name": "Santiago de Cuba", "value": 5 },
+          { "name": "Ciego de Ávila", "value": 2 },
+          { "name": "Guantánamo", "value": 2 }
+        ],
+        "Medios": [
+          { "name": "Matanzas", "value": 36 },
+          { "name": "La Habana", "value": 133 },
+          { "name": "Santiago de Cuba", "value": 45 },
+          { "name": "Cienfuegos", "value": 19 },
+          { "name": "Guantánamo", "value": 28 },
+          { "name": "Ciego de Ávila", "value": 16 },
+          { "name": "Artemisa", "value": 18 },
+          { "name": "Villa Clara", "value": 32 },
+          { "name": "Granma", "value": 35 },
+          { "name": "Camagüey", "value": 27 },
+          { "name": "Las Tunas", "value": 19 },
+          { "name": "Pinar del Río", "value": 23 },
+          { "name": "Mayabeque", "value": 9 },
+          { "name": "Isla de la Juventud", "value": 5 },
+          { "name": "Holguín", "value": 33 },
+          { "name": "Sancti Spíritus", "value": 14 }
+        ],
+        "Almacenamiento y Logística": [
+          { "name": "Santiago de Cuba", "value": 4 },
+          { "name": "Matanzas", "value": 3 },
+          { "name": "Las Tunas", "value": 2 },
+          { "name": "Mayabeque", "value": 2 },
+          { "name": "La Habana", "value": 8 },
+          { "name": "Artemisa", "value": 6 },
+          { "name": "Pinar del Río", "value": 1 },
+          { "name": "Villa Clara", "value": 5 },
+          { "name": "Isla de la Juventud", "value": 1 },
+          { "name": "Cienfuegos", "value": 1 },
+          { "name": "Granma", "value": 2 },
+          { "name": "Holguín", "value": 2 },
+          { "name": "Camagüey", "value": 1 },
+          { "name": "Sancti Spíritus", "value": 0 },
+          { "name": "Ciego de Ávila", "value": 0 },
+          { "name": "Guantánamo", "value": 0 }
+        ],
+        "Otros": [
+          { "name": "Pinar del Río", "value": 1 },
+          { "name": "La Habana", "value": 1 },
+          { "name": "Matanzas", "value": 1 },
+          { "name": "Santiago de Cuba", "value": 1 },
+          { "name": "Holguín", "value": 0 },
+          { "name": "Sancti Spíritus", "value": 0 },
+          { "name": "Villa Clara", "value": 0 },
+          { "name": "Artemisa", "value": 0 },
+          { "name": "Mayabeque", "value": 0 },
+          { "name": "Cienfuegos", "value": 0 },
+          { "name": "Camagüey", "value": 0 },
+          { "name": "Isla de la Juventud", "value": 0 },
+          { "name": "Ciego de Ávila", "value": 0 },
+          { "name": "Guantánamo", "value": 0 },
+          { "name": "Granma", "value": 0 },
+          { "name": "Las Tunas", "value": 0 }
+        ]
+      }
+      let category;
+      function MergeCountries() {
+        var select = document.getElementById("categorySelect");
+        var selectedCategory = select.options[select.selectedIndex].value;
+        console.log(select.options[select.selectedIndex].value);
+        var data = categoryData[selectedCategory];
+        fetch('data/InteractiveMap.json')
+          .then(response => response.json())
+          .then(data => {
+            // Ahora puedes usar tu data
+            category = data[selectedCategory.replace(/_/g, " ")];
+
+            var children;
+            category.forEach(element => {
+              if (element.name == 'La Habana') {
+                children = element.children;
+              }
+            });
+            const infoDiv = document.getElementById('info');
+            while (infoDiv.children[1]) {
+              infoDiv.removeChild(infoDiv.children[1]);
+            }
+            // Crea y agrega un elemento de lista para cada nombre
+            var colorClaro = true
+            children.forEach(name => {
+              const listItem = document.createElement('li');
+              if (colorClaro) {
+                listItem.classList.add('colorClaro')
+                colorClaro = false
+              }
+              else {
+                listItem.classList.add('colorOscuro')
+                colorClaro = true
+              }
+              listItem.textContent = name;
+              infoDiv.appendChild(listItem);
+            });
+
+          }
+          )
+          .catch(error => console.error('Error:', error));
+
+        option.series[0].data = data;
+
+        myChart.setOption(option);
+      }
+      myChart.on('click', function (params) {
+        var children;
+        category.forEach(element => {
+          if (element.name == params.name) {
+            children = element.children;
+          }
+        });
+        const infoDiv = document.getElementById('info');
+        while (infoDiv.children[1]) {
+          infoDiv.removeChild(infoDiv.children[1]);
+        }
+        // Crea y agrega un elemento de lista para cada nombre
+        var colorClaro = true
+        children.forEach(name => {
+          const listItem = document.createElement('li');
+          if (colorClaro) {
+            listItem.classList.add('colorClaro')
+            colorClaro = false
+          }
+          else {
+            listItem.classList.add('colorOscuro')
+            colorClaro = true
+          }
+          listItem.textContent = name;
+          infoDiv.appendChild(listItem);
+        });
+      });
+
+
+
+      myChart.showLoading();
+      $.get('cuba-geojsons/geojson_by_region_division/by_provinces/cuba.geojson', function (CubaJson) {
+        myChart.hideLoading();
+        echarts.registerMap('Cuba', CubaJson);
+
+        option = {
+          tooltip: {
+            trigger: 'item',
+            showDelay: 0,
+            transition: 0.2
+
+          },
+          visualMap: {
+            left: 'center',
+            min: 0,
+            max: 300,
+            inRange: {
+              color: [
+                '#e0f3f8',
+                '#313695',
+              ]
+            },
+            text: ['High', 'Low'],
+            calculable: true,
+            orient: 'horizontal',
+            itemHeight: 500
+          },
+          toolbox: {
+            show: false,
+            //orient: 'vertical',
+            left: 'left',
+            top: 'top',
+            feature: {
+              dataView: { readOnly: false },
+              restore: {},
+              saveAsImage: {}
+            }
+          },
+          series: [
+            {
+              top: '-5%',
+              name: 'Cuba',
+              type: 'map',
+              roam: false,
+              map: 'Cuba',
+              zoom: 1,
+              emphasis: {
+                label: {
+                  show: true
+                }
+              },
+              data: []
+            }
+          ]
+        };
+        MergeCountries();
+        myChart.setOption(option);
+        myChart.resize({
+          height: '700',
+          width: '1600'
+        });
+      });
+      option && myChart.setOption(option);
+
+    </script>
 </body>
 
 </html>
