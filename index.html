@@ -792,6 +792,174 @@
         })
         .catch(error => console.error('Error:', error));
     </script>
+
+    <!-- Gear_Graphics -->
+    <script>
+      let data;
+      fetch('data/mezclado_category.json')
+        .then(response => response.json())
+        .then(json => {
+          data = json;
+          load_gear()
+        })
+        .catch(error => console.error('Error:', error));
+      function load_gear() {
+        const container = d3.select('#container');
+
+        const width = container.node().getBoundingClientRect().width;
+        const height = container.node().getBoundingClientRect().height;
+        const margin = 1; // para evitar cortar el trazo del círculo raíz
+
+        // Especificar el formato de número para los valores
+        const format = d3.format(",d");
+
+        // Crear el diseño del paquete
+        const pack = d3.pack()
+          .size([width / 1.25, height * 1.1])
+          .padding(1);
+        // Calcular la jerarquía a partir de los datos (planos); exponer los valores
+        // para cada nodo; finalmente aplicar el diseño del paquete
+        const modifiedData = Object.entries(data).map(([key, value]) => ({ name: key.replace(/\s/g, "_"), value: value.length }));
+        const root = pack(d3.hierarchy({ children: modifiedData })
+          .sum(d => d.value));
+
+        // Crear el contenedor SVG
+        const svg = d3.create("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .attr("viewBox", `0, 0, ${width}, ${height}`)
+          .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;")
+          .attr("text-anchor", "middle");
+
+        // Colocar cada nodo (hoja) de acuerdo a los valores x e y del diseño
+        const node = svg.append("g")
+          .selectAll()
+          .data(root.leaves())
+          .enter()
+          .append("g")
+          .attr("transform", d => `translate(${1.2 * d.x},${d.y / 1.1})`);
+
+        // Define el patrón de relleno
+        var defs = svg.append("defs");
+
+        node.each(function (d) {
+          let image = ''
+          switch (d.data.name) {
+            case 'Servicios_Profesionales': { image = 'assets/profesional.svg' };
+              break;
+            case 'Servicios_técnicos': { image = 'assets/tecnicos.svg' };
+              break;
+            case 'Agropecuario,_ganaderia,_forestal_y_pesca.': { image = 'assets/agricultura.svg' };
+              break;
+            case 'Manufactura': { image = 'assets/manufacturera.svg' };
+              break;
+            case 'Construcción': { image = 'assets/construcion.svg' };
+              break;
+            case 'Arte,_deporte,_recreación_y_entretenimiento': { image = 'assets/deporte.svg' };
+              break;
+            case 'Transporte': { image = 'assets/trasporte.svg' };
+              break;
+            case 'Energía,_agua_y_gas': { image = 'assets/energia.svg' };
+              break;
+            case 'Medio_Ambiente_y_Reciclaje': { image = 'assets/reciclaje.svg' };
+              break;
+            case 'Industrias': { image = 'assets/industria.svg' };
+              break;
+            case 'Educación_y_servicios_públicos_y_sociales': { image = 'assets/educacion.svg' };
+              break;
+            case 'Salud_y_Belleza': { image = 'assets/belleza.svg' };
+              break;
+            case 'Asociaciones': { image = 'assets/asociaciones.svg' };
+              break;
+            case 'Medios': { image = 'assets/medios_difusion.svg' };
+              break;
+            case 'Almacenamiento_y_Logística': { image = 'assets/logistica.svg' };
+              break;
+            case 'Comercio_y_gastronomía': { image = 'assets/gastronomia.svg' };
+              break;
+            case 'Alojamiento_y_Turismo': { image = 'assets/hoteleria.svg' };
+              break;
+            case 'Almacenamiento_y_Logística': { image = 'assets/logistica.svg' };
+              break;
+            default: { image = 'assets/hoteleria.svg' };
+          }
+          var pattern = defs.append("pattern")
+            .attr("id", d.data.name) // Asegúrate de que cada id de patrón sea único
+            .attr("height", "100%")
+            .attr("width", "100%")
+            .attr("patternContentUnits", "objectBoundingBox");
+
+          pattern.append("image")
+            .attr("height", 1)
+            .attr("width", 1)
+            .attr("preserveAspectRatio", "none")
+            .attr("xlink:href", image); // Asume que d.data.image contiene la ruta a la imagen
+        });
+
+        var tooltip = d3.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("position", "absolute")
+          .style("opacity", 0)
+          .style("background", "#f9f9f9")
+          .style("border", "solid")
+          .style("border-width", "2px")
+          .style("border-radius", "5px")
+          .style("padding", "5px");
+
+        let activeCircle;
+        // Añade el círculo con la imagen dentro
+        node.append("circle")
+          .attr("r", d => d.r)
+          .attr("fill", d => "url(#" + d.data.name + ")") // Usa el id de patrón correspondiente
+          .on("mouseover", function (d) {
+            d3.select(this.parentNode)
+              .raise() // Evento de mouseover
+            activeCircle = d3.select(this);
+            activeCircle
+              .transition()
+              .duration(20)
+
+              .attr("r", d => d.r * 1.2); // Aumenta el radio en un 10%
+
+            tooltip.transition()
+              .duration(200)
+              .style("opacity", .9);
+            tooltip.html(d.data.name.replace(/_/g, " "))
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+          })
+          .on("mousemove", function (event) { // Evento de mousemove
+            tooltip
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 48) + "px");
+          })
+          .on("mouseout", function () { // Evento de mouseout
+            if (activeCircle)
+              activeCircle
+                .transition()
+                .duration(20)
+                .attr("r", d => d.r); // Vuelve al tamaño original
+
+            tooltip.transition()
+              .duration(20)
+              .style("opacity", 0);
+          });
+        const chartElement = document.getElementById("chart");
+        chartElement.appendChild(svg.node());
+
+        window.addEventListener('scroll', function () {
+          node.each(function (d) {
+            var rect = this.getBoundingClientRect();
+            if (rect.bottom <= window.innerHeight) {
+              d3.select(this).selectAll('circle')
+                .transition()
+                .delay((d, i) => i)
+                .attr("r", d => d.r);
+            }
+          });
+        });
+      }
+    </script>
     
 </body>
 
