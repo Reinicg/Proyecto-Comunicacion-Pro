@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base target="_top" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Mapa 01</title>
+
+  <!-- <button id="highlight-button">Resaltar Países</button> -->
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Importamos jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <!-- Importar d3.js -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+
+  <!-- Importar c3.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+
+  <!-- Importar hoja de estilos de c3 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.css" rel="stylesheet">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@latest/dist/echarts.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <div class="content-color color-yellow">
+    <div class="content ">
+      <div class="info_mipyme color-yellow">
+        <div class="image_logo color-yellow">
+          <div class="subtitle">
+            <p>MATCOM presenta:</p>
+          </div>
+          <h1>Emprender en Cuba</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-color color-white section-pie">
+    <div class="content ">
+      <div class="intro_mipyme">
+        <p>Ana era una joven emprendedora que vivía en Cuba. Durante muchos años, había ahorrado con la esperanza de
+          poder iniciar su propio negocio. Los recientes cambios en la política de su país, abrieron nuevas
+          oportunidades para los emprendedores locales, las MYPIMES se extendía a lo largo del país y abarcaban cada vez
+          más rápido sectores necesitados de la economía del país. <span> Ana decidió que era el momento perfecto para
+            hacer realidad su
+            sueño. </span></p>
+        <div class="pie">
+          <div class="titulo">
+            <h4>Comparación de Tipos de Empresas</h4>
+          </div>
+          <div id="pie"></div>
+        </div>
+        <p> Con sus ahorros y su mentalidad de tiburón decidió
+          crear una tienda de comida online. No tenía conocimiento sobre el mercado, ni si existían empresas que
+          ofertaran ese
+          servicio, pero sabia que era una nueva oportunidad para aprovechar sus conocimientos al maximo, y creía
+          firmemente que podía marcar la diferencia a nivel nacional. </p>
+      </div>
+    </div>
+  </div>
+  <div class="content-color color-yellow section-timemap">
+    <p> de lanzarse de lleno a su nueva
+      aventura empresarial, Ana decidió que era crucial realizar un análisis exhaustivo del mercado. Utilizando sus
+      habilidades de programación y mucho ChatGPT, se puso por completo a realizar su investigación.
+      Primeramente descargó los datos necesarios en la <a
+        href="https://www.bing.com/ck/a?!&&p=16cad32e150cbf9cJmltdHM9MTcwNDQ5OTIwMCZpZ3VpZD0xZDA1OGY1Zi01MjdjLTY5NzMtMGZhZS05Y2E4NTMxMDY4OWMmaW5zaWQ9NTE4Nw&ptn=3&ver=2&hsh=3&fclid=1d058f5f-527c-6973-0fae-9ca85310689c&psq=onei&u=a1aHR0cDovL3d3dy5vbmVpLmdvYi5jdS8&ntb=1">
+        Oficina Nacional de Estadistica e Informacion (ONEI)</a> y otros
+      de la página web de <a href="https://www.negocioscuba.cu/">negocioscuba</a>, luego los procesó y los
+      estructuró en un json para poder manipular los datos
+      con mayor facilidad. Con la información más detallada se sorprendió al ver la gran cantidad de MIPYME que
+      existían. Hasta ese entonces habían alrededor de 9357 empresas distribuidas por todo el país.</p>
+    <div class="TimeMap">
+      <div class="centered-content">
+        <div class="titulo">
+          <h4>Crecimiento de las MYPIMES desde su legalización</h4>
+        </div>
+        <form id="control-form"
+          style="font: 12px var(--sans-serif); font-variant-numeric: tabular-nums; display: flex; height: 33px; align-items: center;">
+          <button id="play-button" name="b" type="button" style="margin-right: 0.4em; border: white;
+          background-color: #f1eecbfb;">
+            <div>
+              <img id="play-pause-button" src="assets/icono-play.svg" alt="Play" width="20px" height="20px">
+            </div>
+          </button>
+          <label style="display: flex; align-items: center;">
+            <input id="range-input" name="i" type="range" min="0" max="9190" value="0" step="1" style="width: 300px;">
+            <output id="date-output" name="o" style="margin-left: 0.4em;"></output>
+          </label>
+        </form>
+      </div>
+      <div id="mapTime"></div>
+    </div>
+  </div>
+  <div class="content-color color-white">
+    <div class="centered-content">
+
+      <p>Se percató que la mayor concentración de la empresas se ubicaban en las zonas urbanas. En especial, La
+        Habana albergaba la mayoría de estas.
+        <br><br>
+        Ana necesitaba tener una visión más específica sobre el sector económico en el que se iba a involucrar, por lo
+        que decidió reagrupar las empresas en 17 sectores principales y asi poder compararlas.
+      </p>
+
+      <div class="titulo">
+        <h4>Representación visual de las categorías</h4>
+      </div>
+    </div>
+    <div id="container">
+      <div id="chart"></div>
+    </div>
+    <div class="centered-content">
+      <p> Observó que la mayor parte de las empresas estaban orientadas a la industria agropecuaria y a la
+        comercialización de alimentos.<br><br><span> Ana: ¿Será bueno invertir teniendo tanta competencia o es que tener
+          tanta
+          demanda lo hace un sector seguro?</span>
+        <br><br>
+
+        <span>Siguió investigando...</span>
+      </p>
+    </div>
+  </div>
+  <div class="content-color color-yellow section-colormap">
+    <p> Ana sabía que la mayor cantidad de clientes de su tienda online
+      estarían en las
+      provincias donde menos se ofertaran estos servicios, y tenía que preparar una logística eficiente que
+      priorizara a estas localidades.
+    </p>
+
+    <div class="centered-content">
+      <div class="graph-text">
+        <div class="titulo">
+          <h4>Distribución de las empresas por provincias</h4>
+        </div>
+      </div>
+      <div class="centered-content">
+        <div onchange="MergeCountries()">
+          <div class="catego">
+            <span>Categoría:&nbsp;</span>
+            <select id="categorySelect">
+              <option value="Comercio y gastronomía"> Comercio y gastronomía</option>
+              <option value="Servicios Técnicos"> Servicios Técnicos</option>
+              <option value="Manufactura"> Manufactura</option>
+              <option value="Transporte"> Transporte</option>
+              <option value="Salud y Belleza"> Salud y Belleza</option>
+              <option value="Educación y servicios públicos y sociales"> Educación y servicios públicos y sociales
+              </option>
+              <option value="Servicios Profesionales"> Servicios Profesionales</option>
+              <option value="Alojamiento y Turismo"> Alojamiento y Turismo</option>
+              <option value="Agropecuario, ganadería, forestal y pesca"> Agropecuario, ganadería, forestal y pesca
+              </option>
+              <option value="Medios"> Medios</option>
+              <option value="Arte, deporte, recreación y entretenimiento"> Arte, deporte, recreación y entretenimiento
+              </option>
+              <option value="Construcción"> Construcción</option>
+              <option value="Medio Ambiente y Reciclaje"> Medio Ambiente y Reciclaje</option>
+              <option value="Energía, agua y gas"> Energía, agua y gas</option>
+              <option value="Industrias"> Industrias</option>
+              <option value="Asociaciones"> Asociaciones</option>
+              <option value="Almacenamiento y Logística"> Almacenamiento y Logística</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-container">
+      <div id="ColorMap"></div>
+      <div id="info">
+        <div class="empresa-info">
+          <h5>Empresas</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-color color-white section-conclusion">
+    <div class="centered-content">
+
+      <p>Encontró que las provincias con menos servicios gastronómicas eran: la Isla de la Juventud, Mayabeque,
+        Cienfuegos y Sancti Spíritus y a su vez le resultó interesante darse cuenta que estas eran las que menos
+        servicios de almacenamiento y logística tenían y esto podría ser un obstáculo en el futuro. <br><br>Armada con
+        este conocimiento detallado del mercado local
+        y la competencia, Ana se sintió lista para dar el siguiente paso en su viaje emprendedor. Con su determinación y
+        habilidades, estaba segura de que podía convertir su visión en una exitosa MIPYME que no solo generaría
+        ingresos, sino que también contribuiría al desarrollo económico de su comunidad.</p>
+  </div>
+
+    
