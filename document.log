@@ -1,0 +1,193 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.12.9)  8 JAN 2024 21:22
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./document.tex
+(document.tex
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
+.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
+ef
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
+)
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
+dftex.def
+File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count193
+\l__pdf_internal_box=\box51
+) (document.aux
+
+LaTeX Warning: Label `fig:mi_imagen' multiply defined.
+
+
+LaTeX Warning: Label `fig:mi_imagen' multiply defined.
+
+
+LaTeX Warning: Label `fig:mi_imagen' multiply defined.
+
+)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
+mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count194
+\scratchdimen=\dimen143
+\scratchbox=\box52
+\nofMPsegments=\count195
+\nofMParguments=\count196
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count197
+\MPscratchDim=\dimen144
+\MPnumerator=\count198
+\makeMPintoPDFobject=\count199
+\everyMPtoPDFconversion=\toks19
+)
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
+-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Mèdico\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys
+.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+<logo.jpg, id=1, 722.7pt x 366.36874pt>
+File: logo.jpg Graphic file (type jpg)
+<use logo.jpg>
+Package pdftex.def Info: logo.jpg  used on input line 9.
+(pdftex.def)             Requested size: 310.4979pt x 157.4069pt.
+ [1
+
+{C:/Users/Mèdico/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo.jpg
+>] (document.toc)
+\tf@toc=\write3
+\openout3 = `document.toc'.
+
+ [1] [2]
+Overfull \hbox (2.11176pt too wide) in paragraph at lines 52--53
+[]\OT1/cmr/m/n/10 Un es-tu-dio re-al-izado tras una in-for-maci^^Son dada por e
+l Min-is-te-rio de Econom^^S^^Pa
+ []
+
+<Ventas.jpg, id=16, 925.20656pt x 341.02406pt>
+File: Ventas.jpg Graphic file (type jpg)
+<use Ventas.jpg>
+Package pdftex.def Info: Ventas.jpg  used on input line 58.
+(pdftex.def)             Requested size: 345.0pt x 127.1656pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3]
+<Ingresos.jpg, id=20, 930.47626pt x 316.18124pt>
+File: Ingresos.jpg Graphic file (type jpg)
+<use Ingresos.jpg>
+Package pdftex.def Info: Ingresos.jpg  used on input line 71.
+(pdftex.def)             Requested size: 345.0pt x 117.23128pt.
+ [4 <./Ventas.jpg> <./Ingresos.jpg>]
+<Apariciones promedio.png, id=24, 462.528pt x 346.896pt>
+File: Apariciones promedio.png Graphic file (type png)
+<use Apariciones promedio.png>
+Package pdftex.def Info: Apariciones promedio.png  used on input line 88.
+(pdftex.def)             Requested size: 345.0pt x 258.76335pt.
+ [5 <./Apariciones promedio.png>]
+<Figure_3.png, id=30, 815.2056pt x 479.1501pt>
+File: Figure_3.png Graphic file (type png)
+<use Figure_3.png>
+Package pdftex.def Info: Figure_3.png  used on input line 102.
+(pdftex.def)             Requested size: 345.0pt x 202.77702pt.
+
+[6 <./Figure_3.png>]
+Overfull \hbox (3.02844pt too wide) in paragraph at lines 124--125
+[]\OT1/cmr/m/n/10 Asimismo, las Mipymes fo-men-tan la in-no-vaci^^Son y la di-v
+er-si-fi-caci^^Son econ^^Somica.
+ []
+
+
+Overfull \hbox (7.25055pt too wide) in paragraph at lines 128--129
+[]\OT1/cmr/m/n/10 En re-sumen, las Mipymes son ac-tores fun-da-men-tales en el 
+de-sar-rollo econ^^Somico
+ []
+
+[7] (document.aux)
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+ ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1326 strings out of 475247
+ 22534 string characters out of 5756848
+ 1925785 words of memory out of 5000000
+ 22893 multiletter control sequences out of 15000+600000
+ 559588 words of font info for 41 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,6n,65p,724b,228s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Mèdico/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb><C:/Users/Mèdico/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb><C:/Users/Mèdico/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mèdico/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on document.pdf (8 pages, 297068 bytes).
+PDF statistics:
+ 57 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+

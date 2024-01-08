@@ -1,0 +1,150 @@
+html,
+body {
+  margin: 0;
+  background-color: #ffffff;
+  line-height: 1.4;
+  font-size: 20px !important;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  /* height: 100vh; Esto centra verticalmente en toda la altura de la ventana */
+}
+
+Estilos adicionales para los elementos internos si es necesario .graph-text {
+  margin-top: 0;
+}
+
+.row.graph {
+  margin-top: auto;
+}
+
+#map {
+  width: 700px;
+  height: 300px;
+  background-color: white;
+}
+.info {
+  padding: 6px 8px;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+.legend {
+  text-align: left;
+  line-height: 18px;
+  color: #555;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+.provincia {
+  fill-opacity: 1;
+  stroke: black;
+  fill: antiquewhite;
+}
+.provincia:hover {
+  fill: aqua;
+}
+.map {
+  background-color: white;
+  margin-top: 20px;
+}
+
+.image_logo {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.info_mipyme {
+  align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.intro_mipyme {
+  margin-right: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.intro_mipyme h2 {
+  margin: 0%;
+}
+.content {
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 900px;
+}
+.centered-content p {
+  margin-top: 20px;
+}
+.empresas_size {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.colum_iconos {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.cantidad_icono {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+}
+.pastel_text {
+  margin: 0% 10%;
+}
+.pastel_icono {
+  margin-left: 80px;
+}
+#chart{
+  background-color: #ffffff;
+  width: max-content;
+  height: 500px;
+}
+#mapTime{
+  width: 700;
+  height: 300;
+}
+p{
+  max-width: 600px;
+}
+.TimeMap{
+}
+.divider{
+  height: 2px;
+  width: 80px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: #c5c5c5;
+}
+#ColorMap {
+  width: 100%;
+  height: 500px;
+}
+.grande{
+  margin-bottom: -30px;
+}
