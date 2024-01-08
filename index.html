@@ -688,6 +688,110 @@
         }
       });
     </script>
+
+    <!-- TimeMap -->
+    <script>
+      let data2;
+      fetch('data/BDtabla_modificado_coordinates.json')
+        .then(response => response.json())
+        .then(json => {
+
+          data2 = json;
+
+          d3.json("cuba-geojsons/geojson_by_region_division/by_provinces/cuba.geojson").then(function (Cuba) {
+            const projection = d3.geoMercator().center([-79.6, 20.5]).scale(5000).translate([960 / 2, 600 / 2]);
+            const path = d3.geoPath().projection(projection);
+
+            const svg = d3.select("#mapTime").append("svg")
+              .attr("viewBox", [0, 0, 960, 400]);
+
+
+            svg.append("path")
+              .datum(Cuba)
+              .attr("fill", "#ddd")
+              .attr("d", path
+              );
+
+            svg.append("path")
+              .datum(Cuba)
+              .attr("fill", "none")
+              .attr("stroke", "white")
+              .attr("stroke-linejoin", "round")
+              .attr("d", path);
+
+            const g = svg.append("g")
+              .attr("fill", "none")
+              .attr("stroke", "#616161");
+
+            const dot = g.selectAll("circle")
+              .data(data2)
+              .join("circle")
+              .attr("r", 0)
+              .attr("transform", d => {
+                // Usa la proyección para transformar las coordenadas
+                const [x, y] = projection(d);
+                return `translate(${x}, ${y})`;
+              });
+
+            svg.append("circle")
+              .attr("fill", "blue")
+              .attr("r", 0)
+              .attr("transform", d => {
+                // Usa la proyección para transformar las coordenadas
+                const [x, y] = projection(data2[0]);
+                return `translate(${x}, ${y})`;
+              });
+
+            let previousIndex = -Infinity;
+            console.log(data2)
+            svg.node().update = function (index) {
+              dot // enter
+                .filter((d, i) => i > previousIndex && i <= index)
+                .transition().attr("r", 3);
+              dot // exit
+                .filter((d, i) => i <= previousIndex && i > index)
+                .transition().attr("r", 0);
+              previousIndex = index;
+            };
+
+            const rangeInput = document.getElementById('range-input');
+            const playButton = document.getElementById('play-button');
+            const playPuseButton = document.getElementById('play-pause-button');
+            let isPlaying = false;
+            let intervalId;
+
+            rangeInput.addEventListener('input', function () {
+              const index = this.value;
+              svg.node().update(index);
+              // console.log(index)
+            });
+
+            playButton.addEventListener('click', function () {
+              isPlaying = !isPlaying;
+              // this.textContent = isPlaying ? 'Pause' : 'Play';
+
+              playPuseButton.setAttribute('src', isPlaying ? 'assets/icono-play.svg' : 'assets/icono-pause.svg');
+
+              if (isPlaying) {
+                intervalId = setInterval(function () {
+                  let index = +rangeInput.value;
+                  if (index >= +rangeInput.max) {
+                    index = +rangeInput.min;
+                  } else {
+                    index++;
+                  }
+                  rangeInput.value = index;
+                  console.log(index)
+                  svg.node().update(index);
+                }, 0.01); // Cambia el intervalo según sea necesario
+              } else {
+                clearInterval(intervalId);
+              }
+            });
+          });
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
     
 </body>
 
